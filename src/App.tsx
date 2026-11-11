@@ -2,13 +2,13 @@
 
 import { GameTable } from './components/GameTable';
 import { useGameStore } from './store/gameStore';
+import './styles/polymarket.css';
 
 export default function App() {
-  // Initialize store on mount
   useGameStore.getState();
 
   return (
-    <div className="min-h-screen bg-polymarket-bg">
+    <div className="min-h-screen w-full">
       <GameTable />
     </div>
   );
