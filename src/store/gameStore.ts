@@ -45,6 +45,7 @@ const defaultSettings: GameSettings = {
   autoRebet: false,
   showHints: true,
   deckPenetration: 0.75,
+  fourColorMode: false,
 };
 
 const defaultState: GameState = {

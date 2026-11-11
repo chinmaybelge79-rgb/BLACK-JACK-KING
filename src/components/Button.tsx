@@ -148,14 +148,16 @@ export function ActionButton({
   disabled = false,
   loading = false,
   shortcut,
+  leftIcon,
   className,
 }: { 
   label: string;
   onClick: () => void;
-  variant?: 'primary' | 'secondary' | 'danger' | 'success';
+  variant?: 'primary' | 'secondary' | 'danger' | 'success' | 'outline';
   disabled?: boolean;
   loading?: boolean;
   shortcut?: string;
+  leftIcon?: React.ReactNode;
   className?: string;
 }) {
   return (
@@ -166,6 +168,7 @@ export function ActionButton({
       disabled={disabled}
       loading={loading}
       className={cn('min-w-[140px]', className)}
+      leftIcon={leftIcon}
       rightIcon={shortcut && (
         <span className="text-xs text-current/70 font-mono px-2 py-0.5 rounded bg-black/20">
           {shortcut}

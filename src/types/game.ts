@@ -57,6 +57,7 @@ export interface GameSettings {
   autoRebet: boolean;
   showHints: boolean;
   deckPenetration: number;
+  fourColorMode: boolean;
 }
 
 export const SUITS: Suit[] = ['♠', '♥', '♦', '♣'];
