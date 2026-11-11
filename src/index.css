@@ -1,0 +1,174 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    font-feature-settings: 'cv02', 'cv03', 'cv04', 'cv11';
+  }
+
+  * {
+    @apply border-polymarket-border;
+  }
+
+  html {
+    @apply scroll-smooth;
+  }
+
+  body {
+    @apply bg-polymarket-bg text-polymarket-text antialiased;
+    background-image: var(--tw-gradient-stops);
+    background: 
+      radial-gradient(ellipse at 20% 20%, rgba(0, 212, 170, 0.08) 0%, transparent 50%),
+      radial-gradient(ellipse at 80% 80%, rgba(99, 102, 241, 0.05) 0%, transparent 50%),
+      radial-gradient(ellipse at 50% 50%, rgba(0, 0, 0, 0.8) 0%, transparent 70%),
+      #06060a;
+    min-height: 100vh;
+  }
+
+  ::selection {
+    @apply bg-polymarket-primary/30 text-polymarket-text;
+  }
+
+  ::-webkit-scrollbar {
+    @apply w-1.5 h-1.5;
+  }
+
+  ::-webkit-scrollbar-track {
+    @apply bg-transparent;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply bg-polymarket-borderHover rounded-full;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-polymarket-textMuted;
+  }
+}
+
+@layer components {
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl font-semibold text-sm transition-all duration-200 
+           focus:outline-none focus-visible:ring-2 focus-visible:ring-polymarket-primary/50 focus-visible:ring-offset-2 focus-visible:ring-offset-polymarket-bg
+           disabled:opacity-40 disabled:cursor-not-allowed disabled:hover:transform-none;
+  }
+
+  .btn-primary {
+    @apply btn bg-gradient-to-br from-polymarket-primary to-[#00b894] text-polymarket-textInverse 
+           hover:from-[#00e8bb] hover:to-[#00d4aa] hover:shadow-glow-primary
+           active:scale-[0.98] active:shadow-none;
+  }
+
+  .btn-secondary {
+    @apply btn bg-polymarket-bgTeritary border border-polymarket-border text-polymarket-text 
+           hover:bg-polymarket-border hover:border-polymarket-borderHover hover:text-polymarket-text
+           active:scale-[0.98];
+  }
+
+  .btn-danger {
+    @apply btn bg-gradient-to-br from-polymarket-danger to-[#dc2626] text-white
+           hover:from-[#f87171] hover:to-[#ef4444] hover:shadow-glow-danger
+           active:scale-[0.98] active:shadow-none;
+  }
+
+  .btn-success {
+    @apply btn bg-gradient-to-br from-polymarket-success to-[#16a34a] text-white
+           hover:from-[#4ade80] hover:to-[#22c55e] hover:shadow-[0_0_30px_rgba(34,197,94,0.3)]
+           active:scale-[0.98] active:shadow-none;
+  }
+
+  .btn-ghost {
+    @apply btn bg-transparent text-polymarket-textMuted hover:text-polymarket-text hover:bg-polymarket-bgTeritary
+           active:scale-[0.98];
+  }
+
+  .card {
+    @apply bg-polymarket-card border border-polymarket-border rounded-2xl overflow-hidden 
+           shadow-[0_10px_40px_rgba(0,0,0,0.5)] transition-all duration-300;
+  }
+
+  .card-hover {
+    @apply card hover:border-polymarket-borderHover hover:shadow-glow-card hover:-translate-y-1;
+  }
+
+  .input {
+    @apply w-full px-4 py-3 bg-polymarket-bgTeritary border border-polymarket-border 
+           rounded-xl text-polymarket-text placeholder-polymarket-textMuted
+           focus:outline-none focus:border-polymarket-primary focus:ring-1 focus:ring-polymarket-primary
+           transition-all duration-200;
+  }
+
+  .chip {
+    @apply relative flex items-center justify-center rounded-full border-2 
+           transition-all duration-300 cursor-pointer
+           active:scale-95 focus:outline-none focus-visible:ring-2 focus-visible:ring-polymarket-primary/50;
+  }
+
+  .chip-selected {
+    @apply ring-2 ring-polymarket-primary scale-110 shadow-glow-primary;
+  }
+
+  .playing-card {
+    @apply relative w-[80px] h-[112px] md:w-[90px] md:h-[126px] rounded-xl 
+           bg-white shadow-lg transition-all duration-300
+           transform-gpu perspective-1000;
+  }
+
+  .playing-card-back {
+    @apply bg-gradient-to-br from-polymarket-bgTeritary to-polymarket-bg 
+           border border-polymarket-border flex items-center justify-center;
+  }
+
+  .glass-panel {
+    @apply bg-polymarket-bgSecondary/80 backdrop-blur-xl border border-polymarket-border/50 rounded-2xl;
+  }
+
+  .stat-badge {
+    @apply px-3 py-1.5 bg-polymarket-bgTeritary border border-polymarket-border rounded-xl 
+           text-xs font-mono font-semibold tabular-nums;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .animate-in {
+    animation: animateIn 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  }
+
+  @keyframes animateIn {
+    from {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .perspective-1000 {
+    perspective: 1000px;
+  }
+
+  .transform-gpu {
+    transform: translateZ(0);
+    backface-visibility: hidden;
+  }
+
+  .preserve-3d {
+    transform-style: preserve-3d;
+  }
+
+  .rotate-y-90 {
+    transform: rotateY(90deg);
+  }
+
+  .rotate-y-0 {
+    transform: rotateY(0deg);
+  }
+}
